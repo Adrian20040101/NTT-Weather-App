@@ -1,0 +1,43 @@
+.location-card {
+    position: relative;
+    max-width: 300px;
+    height: 180px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/background-image.webp');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(1);
+    }
+  
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      backdrop-filter: brightness(1.1);
+      background-color: rgba(255, 255, 255, 0.5);
+      color: black;
+      padding: 1rem;
+  
+      .location-label {
+        margin-top: 2rem;
+        margin-left: 1rem;
+        font-size: 1rem;
+      }
+  
+      .city-name {
+        font-size: 2rem;
+        margin-left: 0.8rem;
+        font-weight: bold;
+      }
+    }
+  }
+  
