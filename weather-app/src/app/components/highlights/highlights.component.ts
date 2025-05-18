@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HighlightCardComponent } from './highlight-card/highlight-card.component';
-import { HighlightChartComponent } from './highlight-chart/highlight-chart.component';
 
 @Component({
   selector: 'app-highlights',
   standalone: true,
-  imports: [CommonModule, HighlightCardComponent, HighlightChartComponent],
+  imports: [CommonModule, HighlightCardComponent],
   templateUrl: './highlights.component.html',
   styleUrls: ['./highlights.component.scss']
 })
