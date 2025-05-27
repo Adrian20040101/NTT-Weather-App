@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HighlightCardComponent } from './highlight-card/highlight-card.component';
 
@@ -7,13 +7,27 @@ import { HighlightCardComponent } from './highlight-card/highlight-card.componen
   standalone: true,
   imports: [CommonModule, HighlightCardComponent],
   templateUrl: './highlights.component.html',
-  styleUrls: ['./highlights.component.scss']
+  styleUrls: ['./highlights.component.scss'],
 })
-export class HighlightsComponent {
+export class HighlightsComponent implements OnChanges {
+  @Input() weatherData: any;
+
   highlights = [
-    { title: 'Temperature', value: '23°C', icon: 'thermostat' },
-    { title: 'Wind Speed', value: '15 km/h', icon: 'air' },
-    { title: 'Humidity', value: '62%', icon: 'water_drop' },
-    { title: 'Pressure', value: '1015 hPa', icon: 'speed' },
+    { title: 'Temperature', value: '--', icon: 'thermostat' },
+    { title: 'Wind Speed', value: '--', icon: 'air' },
+    { title: 'Humidity', value: '--', icon: 'water_drop' },
+    { title: 'Pressure', value: '--', icon: 'speed' },
   ];
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['weatherData'] && this.weatherData) {
+      this.highlights = [
+        { title: 'Temperature', value: `${this.weatherData.temperature}°C`, icon: 'thermostat' },
+        { title: 'Wind Speed', value: `${this.weatherData.windspeed} km/h`, icon: 'air' },
+        { title: 'Humidity', value: `${this.weatherData.humidity}%`, icon: 'water_drop' },
+        { title: 'Pressure', value: `${this.weatherData.pressure} hPa`, icon: 'speed' },
+      ];
+    }
+  }
+
 }

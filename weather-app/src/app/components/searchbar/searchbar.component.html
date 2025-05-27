@@ -1,11 +1,16 @@
 <div class="searchbar">
-    <div class="search-container">
-      <span class="material-icons search-icon">search</span>
-      <input
-        type="text"
-        [(ngModel)]="searchQuery"
-        placeholder="Search here..."
-      />
-    </div>
+  <div class="search-container">
+    <span class="material-icons search-icon">search</span>
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchInput()"
+      placeholder="Search here..."
+    />
+    <ul *ngIf="suggestions.length" class="suggestions-list">
+      <li *ngFor="let suggestion of suggestions" (click)="onSelectSuggestion(suggestion)">
+        {{ suggestion.description }}
+      </li>
+    </ul>
   </div>
-  
+</div>
