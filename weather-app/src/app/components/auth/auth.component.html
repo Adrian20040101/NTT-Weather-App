@@ -1,0 +1,11 @@
+<div class="auth-wrapper">
+  <app-login 
+    *ngIf="currentMode === 'login'" 
+    (switchMode)="switchMode($event)">
+  </app-login>
+  
+  <app-register 
+    *ngIf="currentMode === 'register'" 
+    (switchMode)="switchMode($event)">
+  </app-register>
+</div>

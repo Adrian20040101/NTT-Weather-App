@@ -1,10 +1,10 @@
-<div class="app-layout">
-  <app-sidebar></app-sidebar>
-  <div class="main-area">
-    <app-searchbar (citySelected)="updateCity($event)"></app-searchbar>
-    <div class="content">
-      <app-location-card [cityName]="cityName"></app-location-card>
-      <app-highlights [weatherData]="weatherData"></app-highlights>    
-    </div>
-  </div>
+<div *ngIf="authService.authInitialized$ | async; else loading">
+  <router-outlet></router-outlet>
 </div>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading...</p>
+  </div>
+</ng-template>

@@ -1,22 +1,36 @@
 <aside class="sidebar">
-    <div class="sidebar-content">
-      <div class="app-title">WeatherApp</div>
-  
-      <nav class="menu">
-        <a routerLink="/" routerLinkActive="active" class="menu-item">
-          <span class="material-icons">home</span>
-          Home
-        </a>
-        <a routerLink="/favorites" routerLinkActive="active" class="menu-item">
-          <span class="material-icons">favorite</span>
-          Favorites
-        </a>
-      </nav>
-    </div>
-  
-    <div class="sidebar-footer">
+  <div class="sidebar-content">
+    <div class="app-title">WeatherApp</div>
+
+    <nav class="menu">
+      <a routerLink="/" routerLinkActive="active" class="menu-item">
+        <span class="material-icons">home</span>
+        Home
+      </a>
+      <a routerLink="/favorites" routerLinkActive="active" class="menu-item">
+        <span class="material-icons">favorite</span>
+        Favorites
+      </a>
+    </nav>
+  </div>
+
+  <div class="sidebar-footer">
+    <div *ngIf="currentUser$ | async as user; else loginPrompt" class="user-info">
       <span class="material-icons">person</span>
-      Hello, User
+      <div class="user-details">
+        <div class="user-email">{{ user.email }}</div>
+        <button (click)="logout()" class="logout-btn">Logout</button>
+      </div>
     </div>
-  </aside>
-  
+    
+    <ng-template #loginPrompt>
+      <div class="login-prompt">
+        <span class="material-icons">person_outline</span>
+        <div class="login-details">
+          <div class="login-text">Not logged in</div>
+          <button (click)="goToLogin()" class="login-btn">Login</button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</aside>

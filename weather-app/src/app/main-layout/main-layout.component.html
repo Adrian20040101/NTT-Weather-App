@@ -1,0 +1,10 @@
+<div class="app-layout">
+  <app-sidebar></app-sidebar>
+  <div class="main-area">
+    <app-searchbar (citySelected)="updateCity($event)"></app-searchbar>
+    <div class="content">
+      <app-location-card [cityName]="cityName"></app-location-card>
+      <app-highlights [weatherData]="weatherData"></app-highlights>    
+    </div>
+  </div>
+</div>
