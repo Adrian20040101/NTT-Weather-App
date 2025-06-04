@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 import { CanActivate, Router } from "@angular/router"
-import { type Observable, map, take } from "rxjs"
+import { Observable, map } from "rxjs"
 import { AuthService } from "../services/auth.service"
 
 @Injectable({
@@ -13,8 +13,7 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(): Observable<boolean> {
-    return this.authService.currentUser$.pipe(
-      take(1),
+    return this.authService.getAuthState().pipe(
       map((user) => {
         if (user) {
           return true

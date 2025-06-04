@@ -8,7 +8,7 @@ import {
   onAuthStateChanged,
   type User,
 } from "firebase/auth"
-import { BehaviorSubject, type Observable } from "rxjs"
+import { BehaviorSubject, Observable, filter, take } from "rxjs"
 
 const firebaseConfig = {
   apiKey: "AIzaSyB0F_8SOVJZmoFShAU0m-_H0I3zQI0RRqw",
@@ -39,6 +39,35 @@ export class AuthService {
       if (!this.authInitialized.value) {
         this.authInitialized.next(true)
       }
+    })
+  }
+
+  // Wait for auth to be initialized and return the current user state
+  waitForAuthInit(): Observable<User | null> {
+    return this.authInitialized$
+      .pipe(
+        filter((initialized) => initialized),
+        take(1),
+        // Switch to current user observable once initialized
+      )
+      .pipe(
+        // Return the current user after initialization
+        () => this.currentUser$.pipe(take(1)),
+      )
+  }
+
+  // Better method to wait for auth initialization
+  getAuthState(): Observable<User | null> {
+    if (this.authInitialized.value) {
+      return this.currentUser$.pipe(take(1))
+    }
+
+    return new Observable((observer) => {
+      const unsubscribe = onAuthStateChanged(this.auth, (user) => {
+        observer.next(user)
+        observer.complete()
+        unsubscribe()
+      })
     })
   }
 
@@ -90,6 +119,8 @@ export class AuthService {
         return "Invalid email address."
       case "auth/too-many-requests":
         return "Too many failed attempts. Please try again later."
+      case "auth/invalid-credential":
+        return "Invalid email or password."
       default:
         return "An error occurred. Please try again."
     }
