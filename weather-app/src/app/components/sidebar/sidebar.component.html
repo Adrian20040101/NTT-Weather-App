@@ -3,11 +3,11 @@
     <div class="app-title">WeatherApp</div>
 
     <nav class="menu">
-      <a routerLink="/" routerLinkActive="active" class="menu-item">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="menu-item">
         <span class="material-icons">home</span>
         Home
       </a>
-      <a routerLink="/favorites" class="menu-item">
+      <a routerLink="/favorites" routerLinkActive="active" class="menu-item">
         <span class="material-icons">favorite</span>
         Favorites
       </a>
