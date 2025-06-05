@@ -1,0 +1,13 @@
+<div class="cities-container">
+  <div *ngFor="let city of favoriteCities" class="city-card" [style.background-image]="'url(' + city.backgroundUrl + ')'">
+    <div class="overlay">
+      <h2>{{ city.name }}</h2>
+      <div *ngIf="city.weather">
+        <div class="weather-icon">{{ weatherIcon(city.weather.weathercode) }}</div>
+        <div>{{ city.weather.temperature }} °C</div>
+        <div>Wind: {{ city.weather.windspeed }} km/h</div>
+      </div>
+      <button (click)="selectCity(city)">Select</button>
+    </div>
+  </div>
+</div>

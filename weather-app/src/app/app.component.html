@@ -1,10 +1,17 @@
+<!--<div class="app-layout">-->
+<!--  <app-sidebar></app-sidebar>-->
+<!--  <div class="main-area">-->
+<!--    <app-searchbar (citySelected)="updateCity($event)"></app-searchbar>-->
+<!--    <div class="content">-->
+<!--      <app-location-card [cityName]="cityName"></app-location-card>-->
+<!--      <app-highlights [weatherData]="weatherData"></app-highlights>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <router-outlet></router-outlet>&ndash;&gt;-->
+<!--</div>-->
 <div class="app-layout">
   <app-sidebar></app-sidebar>
   <div class="main-area">
-    <app-searchbar (citySelected)="updateCity($event)"></app-searchbar>
-    <div class="content">
-      <app-location-card [cityName]="cityName"></app-location-card>
-      <app-highlights [weatherData]="weatherData"></app-highlights>    
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>

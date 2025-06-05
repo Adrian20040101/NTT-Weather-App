@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyB0F_8SOVJZmoFShAU0m-_H0I3zQI0RRqw",
   authDomain: "ntt-weather-app.firebaseapp.com",
   projectId: "ntt-weather-app",
@@ -11,5 +11,5 @@ const firebaseConfig = {
   measurementId: "G-PQZBDEY95F"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
