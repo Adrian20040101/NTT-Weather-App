@@ -29,3 +29,8 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.main-content {
+  margin-left: 220px;
+  padding: 1rem;
+  box-sizing: border-box;
+}

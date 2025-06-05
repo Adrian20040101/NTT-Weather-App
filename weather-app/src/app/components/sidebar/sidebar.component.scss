@@ -9,25 +9,28 @@
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
-  }  
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  }
+
   .sidebar-content {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
-  
+
   .app-title {
     font-size: 1.75rem;
     font-weight: bold;
     margin-bottom: 2rem;
   }
-  
+
   .menu {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-  
+
     .menu-item {
       display: flex;
       align-items: center;
@@ -37,31 +40,31 @@
       font-weight: 500;
       font-size: 1.5rem;
       cursor: pointer;
-  
+
       .material-icons {
         font-size: 40px;
         color: #777;
         transition: color 0.2s ease;
       }
-  
+
       &.active,
       &:hover {
         color: #f3a310;
-  
+
         .material-icons {
           color: #f3a310;
         }
       }
     }
   }
-  
+
   .sidebar-footer {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 1.25rem;
     color: #555;
-  
+
     .material-icons {
       font-size: 40px;
       color: #777;

@@ -3,6 +3,7 @@ import { AuthComponent } from "./components/auth/auth.component"
 import { MainLayoutComponent } from "./main-layout/main-layout.component"
 import { AuthGuard } from "./guards/auth.guard"
 import { GuestGuard } from "./guards/guest.guard"
+import {FavoriteCitiesComponent} from "./components/favorite-cities/favorite-cities.component";
 
 export const routes: Routes = [
   {
@@ -22,11 +23,11 @@ export const routes: Routes = [
   },
   {
     path: "favorites",
-    component: MainLayoutComponent,
+    component: FavoriteCitiesComponent,
     canActivate: [AuthGuard], // Require authentication
   },
   {
     path: "**",
     redirectTo: "",
-  },
-]
+  }
+];
