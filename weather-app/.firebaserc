@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "ntt-weather-app"
-  }
+    "default": "ntt-weather-app-3eee6"
+  },
+  "targets": {},
+  "etags": {}
 }

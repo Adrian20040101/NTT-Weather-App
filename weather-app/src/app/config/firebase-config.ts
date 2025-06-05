@@ -2,13 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyB0F_8SOVJZmoFShAU0m-_H0I3zQI0RRqw",
-  authDomain: "ntt-weather-app.firebaseapp.com",
-  projectId: "ntt-weather-app",
-  storageBucket: "ntt-weather-app.firebasestorage.app",
-  messagingSenderId: "1033833579017",
-  appId: "1:1033833579017:web:0befc743424877de58eed8",
-  measurementId: "G-PQZBDEY95F"
+  apiKey: "AIzaSyAHjhRLfxhEYCld8uKiTrNb1oKsoiJbWkQ",
+  authDomain: "ntt-weather-app-3eee6.firebaseapp.com",
+  projectId: "ntt-weather-app-3eee6",
+  storageBucket: "ntt-weather-app-3eee6.firebasestorage.app",
+  messagingSenderId: "461395107305",
+  appId: "1:461395107305:web:434e4ff62304bccb40ff78",
+  measurementId: "G-QQDJEZ529Q"
 };
 
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);

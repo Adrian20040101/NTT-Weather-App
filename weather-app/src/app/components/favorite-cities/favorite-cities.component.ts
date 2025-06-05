@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgForOf, NgIf} from '@angular/common';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 interface CityWeather {
     temperature: number;
@@ -19,7 +20,7 @@ interface FavoriteCity {
 @Component({
     selector: 'app-favorite-cities',
     standalone: true,
-  imports: [NgForOf, HttpClientModule, NgIf],
+    imports: [NgForOf, HttpClientModule, NgIf, SidebarComponent],
     templateUrl: './favorite-cities.component.html',
     styleUrls: ['./favorite-cities.component.scss']
 })

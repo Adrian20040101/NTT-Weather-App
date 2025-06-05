@@ -4,6 +4,25 @@
     
     <form (ngSubmit)="onRegister()" #registerForm="ngForm">
       <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          required
+          minlength="3"
+          #usernameInput="ngModel"
+        />
+        <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error">
+          Username must be at least 3 characters
+        </div>
+        <div *ngIf="usernameTaken" class="error">
+          This username is already taken
+        </div>
+      </div>
+
+      <div class="form-group">
         <label for="email">Email</label>
         <input
           type="email"
@@ -45,7 +64,10 @@
           required
           #confirmPasswordInput="ngModel"
         />
-        <div *ngIf="password !== confirmPassword && confirmPasswordInput.touched" class="error">
+        <div 
+          *ngIf="password !== confirmPassword && confirmPasswordInput.touched" 
+          class="error"
+        >
           Passwords do not match
         </div>
       </div>
@@ -56,7 +78,11 @@
 
       <button 
         type="submit" 
-        [disabled]="registerForm.invalid || password !== confirmPassword || isLoading"
+        [disabled]="
+          registerForm.invalid ||
+          password !== confirmPassword ||
+          isLoading
+        "
         class="auth-button"
       >
         <span *ngIf="isLoading">Creating account...</span>
@@ -65,7 +91,10 @@
     </form>
 
     <div class="auth-switch">
-      <p>Already have an account? <a (click)="switchToLogin()">Login here</a></p>
+      <p>
+        Already have an account? 
+        <a (click)="switchToLogin()">Login here</a>
+      </p>
     </div>
   </div>
 </div>

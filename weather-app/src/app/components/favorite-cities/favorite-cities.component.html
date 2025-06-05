@@ -1,4 +1,5 @@
 <div class="cities-container">
+  <app-sidebar></app-sidebar>
   <div *ngFor="let city of favoriteCities" class="city-card" [style.background-image]="'url(' + city.backgroundUrl + ')'">
     <div class="overlay">
       <h2>{{ city.name }}</h2>
